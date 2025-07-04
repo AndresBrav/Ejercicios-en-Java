@@ -15,7 +15,7 @@ public class Exercises {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Ejercicios result = new Ejercicios();
+        /*Ejercicios result = new Ejercicios();
 
         // Medir ResolucionOriginal
         long start1 = System.nanoTime();
@@ -29,6 +29,14 @@ public class Exercises {
         result.ResolucionMejorada();
         long end2 = System.nanoTime();
         long duration2 = end2 - start2;
+        System.out.println("Tiempo ResolucionMejorada: " + duration2 + " ns (" + (duration2 / 1_000_000.0) + " ms)");
+         */
+        Ejercicio2 result2 = new Ejercicio2();
+        long start2 = System.nanoTime();
+        boolean resultado= result2.funcionAnagrama(" Andres ","sAndr");
+        long end2 = System.nanoTime();
+        long duration2 = end2 - start2;
+        System.out.println("el resultado es: "+resultado);
         System.out.println("Tiempo ResolucionMejorada: " + duration2 + " ns (" + (duration2 / 1_000_000.0) + " ms)");
     }
 
