@@ -22,16 +22,19 @@ package Ejercicio11;
 import java.util.ArrayList;
 
 public class Main {
-    
+
     public static void main(String[] args) {
-        balanceado("{ ( ) [ a * ( c + d ) ] - 5 }");
+        long start2 = System.nanoTime();
+        balanceado("{ ( ) [ a * ( c + d ) ] - [5 }]");
         balanceado("( a [ ]* ( ( c + d ) ) - 5 )");
-        //System.out.println(isSigno('{'));
+        long end2 = System.nanoTime();
+        long duration2 = end2 - start2;
+        System.out.println("Tiempo ResolucionMejorada: " + duration2 + " ns (" + (duration2 / 1_000_000.0) + " ms)");
     }
-    
+
     public static void balanceado(String expresion) {
         ArrayList<Character> signos = llenarArregloCaracteres(expresion);
-        
+
         if (signos.size() % 2 != 0) {
             System.out.println("No esta balanceado");
         } else {
@@ -41,7 +44,7 @@ public class Main {
                 char primero = signos.get(i);
                 char ultimo = signos.get(tamaño - 1);
                 char siguiente = signos.get(i + 1);
-                
+
                 if (Inverso(primero, ultimo)) {
                     signos.remove(tamaño - 1);
                     signos.remove(i);
@@ -61,7 +64,7 @@ public class Main {
             }
         }
     }
-    
+
     public static boolean Inverso(char elemento, char siguiente) {
         if (elemento == '{' && siguiente == '}') {
             return true;
@@ -73,7 +76,7 @@ public class Main {
             return false;
         }
     }
-    
+
     public static ArrayList<Character> llenarArregloCaracteres(String expresion) {
         ArrayList<Character> signos2 = new ArrayList<>();
         for (int i = 0; i < expresion.length(); i++) {
@@ -84,7 +87,7 @@ public class Main {
         }
         return signos2;
     }
-    
+
     public static boolean isSigno(char a) {
         if (a == '{' || a == '}' || a == '[' || a == ']' || a == '(' || a == ')') {
             return true;

@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.ArrayList;
+import java.util.Stack;
 
 public class Main {
 
@@ -34,5 +35,31 @@ public class Main {
             System.out.println(entrada.getKey());
             System.out.println(entrada.getValue());
         }
+        
+        
+        //Pilas
+         // Crear una pila de enteros
+        Stack<Integer> pila = new Stack<>();
+
+        // Agregar elementos a la pila
+        pila.push(10);
+        pila.push(20);
+        pila.push(30);
+
+        // Mostrar la pila
+        System.out.println("Contenido de la pila: " + pila);
+
+        // Ver el tope sin eliminarlo
+        System.out.println("Elemento en el tope (peek): " + pila.peek());
+
+        // Sacar un elemento
+        int eliminado = pila.pop();
+        System.out.println("Elemento eliminado (pop): " + eliminado);
+
+        // Mostrar la pila actual
+        System.out.println("Pila después del pop: " + pila);
+
+        // Verificar si está vacía
+        System.out.println("¿Está vacía la pila? " + pila.isEmpty());
     }
 }
