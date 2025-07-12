@@ -19,12 +19,36 @@ package Ejercicio13;
 public class Main {
 
     public static void main(String[] args) {
-        String palabra = "Ana llev al oso la avellana";
+        String palabra = "Ana lleva al oso la avellana";
+        String palabra2 = "Anita lava la tina";
+        String palabra3 = "¿Acaso HUBO búhos acá?";
 
-        System.out.println(esPalindromo(palabra));
+        System.out.println(esPalindromo(palabra3));
     }
 
     public static boolean esPalindromo(String palabra) {
+        String nueva = palabra.toLowerCase();
+
+        StringBuilder construir = new StringBuilder();
+        for (int i = 0; i < nueva.length(); i++) {
+            char aux = QuitarTilde(nueva.charAt(i));
+            if (!isSigno(aux)) {
+                construir.append(aux);  // Agregar carácter sin crear nuevo String
+            }
+        }
+
+        String cadena = construir.toString(); // Convertir a String cuando ya está completo
+
+        StringBuilder inversoBuilder = new StringBuilder();
+        for (int i = cadena.length() - 1; i >= 0; i--) {
+            inversoBuilder.append(cadena.charAt(i));
+        }
+        String inverso = inversoBuilder.toString();
+
+        return cadena.equals(inverso);
+    }
+
+    /*public static boolean esPalindromo(String palabra) {
         boolean respuesta = false;
         String nueva = palabra.toLowerCase(); //convertir todo a minuscula
 
@@ -44,8 +68,7 @@ public class Main {
             respuesta = true;
         }
         return respuesta;
-    }
-
+    }*/
     public static char QuitarTilde(char a) {
         if (a == 'á') {
             return 'a';
@@ -70,6 +93,8 @@ public class Main {
         } else if (a == '.') {
             return true;
         } else if (a == ' ') {
+            return true;
+        } else if (a == '?' || a == '¿') {
             return true;
         } else {
             return false;
