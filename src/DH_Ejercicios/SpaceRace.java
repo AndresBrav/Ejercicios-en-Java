@@ -35,6 +35,9 @@ public class SpaceRace {
         }
 
         CalcularDivisores(casosPrueba);
+        
+        /*1 [13,27,12,26]
+          2 [2,2,2] */
 
         /*int clave = 1;
         List<Integer> soles = new ArrayList<>(Arrays.asList(13, 27, 12, 26));
@@ -79,7 +82,7 @@ public class SpaceRace {
             int numero = DivisoresDelSol.get(i);
             frecuencias.put(numero, frecuencias.getOrDefault(numero, 0) + 1);
         }
-
+        
         ImprimirFrecuencia(frecuencias);
 
     }
